@@ -11,6 +11,10 @@
         --bg-color: #fdfcf8;
         --text-main: #111111;
         --text-muted: #333333;
+        --heading-size-min: 2.55rem;
+        --heading-size-fluid: 7.5vw;
+        --heading-size-max: 4.65rem;
+        --profile-scale: 2.45;
       }
 
       * {
@@ -41,8 +45,16 @@
         width: 100%;
 
         .profile-photo {
-          width: clamp(6.25rem, 18.3823529412vw, 11.3970588235rem);
-          height: clamp(6.25rem, 18.3823529412vw, 11.3970588235rem);
+          width: clamp(
+            calc(var(--heading-size-min) * var(--profile-scale)),
+            calc(var(--heading-size-fluid) * var(--profile-scale)),
+            calc(var(--heading-size-max) * var(--profile-scale))
+          );
+          height: clamp(
+            calc(var(--heading-size-min) * var(--profile-scale)),
+            calc(var(--heading-size-fluid) * var(--profile-scale)),
+            calc(var(--heading-size-max) * var(--profile-scale))
+          );
           border-radius: 50%;
           object-fit: cover;
           margin-bottom: 2.5rem;
@@ -51,7 +63,7 @@
 
         h1 {
           font-family: "Libre Caslon Display", Georgia, serif;
-          font-size: clamp(2.55rem, 7.5vw, 4.65rem);
+          font-size: clamp(var(--heading-size-min), var(--heading-size-fluid), var(--heading-size-max));
           font-weight: 400;
           letter-spacing: 0;
           margin-bottom: 1.8rem;
