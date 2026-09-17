@@ -11,10 +11,21 @@
         --bg-color: #fdfcf8;
         --text-main: #111111;
         --text-muted: #333333;
+        /* h1's responsive curve. */
         --heading-size-min: 2.5rem;
         --heading-size-fluid: 7.5vw;
         --heading-size-max: 4.5rem;
+        /* Multiplying every h1 term by a ratio preserves its clamp transition points. */
         --profile-scale: 2.5;
+        --bio-scale: 0.276;
+        --bio-max-scale: 0.75;
+        --bio-size-min: calc(var(--heading-size-min) * var(--bio-scale));
+        --bio-size-max: calc(var(--heading-size-max) * var(--bio-scale) * var(--bio-max-scale));
+        /* Normalizes the fluid h1 value: 0 at its minimum, 1 at its maximum. */
+        --heading-size-progress: calc(
+          (var(--heading-size-fluid) - var(--heading-size-min)) /
+            (var(--heading-size-max) - var(--heading-size-min))
+        );
       }
 
       * {
@@ -72,14 +83,18 @@
         }
 
         .bio {
-          font-size: 1.05rem;
+          /* Interpolate from the bio minimum to its capped maximum using h1 progress. */
+          font-size: clamp(
+            var(--bio-size-min),
+            calc(var(--bio-size-min) + (var(--bio-size-max) - var(--bio-size-min)) * var(--heading-size-progress)),
+            var(--bio-size-max)
+          );
           line-height: 1.4;
           color: var(--text-muted);
           margin-bottom: 3rem;
           letter-spacing: 0.08em;
 
           p {
-            font-size: 0.69rem;
             font-weight: 500;
             letter-spacing: 0.07em;
             line-height: 1.85;
