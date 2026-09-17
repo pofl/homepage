@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Florian Polster - Developer</title>
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=playfair:400|playfair-display:600" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Caslon+Display&display=swap" />
     <style>
       :root {
         /* "Bone" / "Eggshell" aesthetic */
@@ -22,8 +22,7 @@
       body {
         background-color: var(--bg-color);
         color: var(--text-main);
-        font-family: 'Playfair', serif;
-        font-weight: 400;
+        font-family: "DM Mono", monospace;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -51,12 +50,12 @@
         }
 
         h1 {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.6rem;
-          font-weight: 600;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
+          font-family: "Libre Caslon Display", Georgia, serif;
+          font-size: clamp(2.55rem, 7.5vw, 4.65rem);
+          font-weight: 400;
+          letter-spacing: 0;
           margin-bottom: 1.8rem;
+          line-height: 0.87;
           color: var(--text-main);
         }
 
@@ -68,6 +67,11 @@
           letter-spacing: 0.08em;
 
           p {
+            font-size: 0.69rem;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+            line-height: 1.85;
+            text-transform: uppercase;
             margin: 0.3rem 0;
           }
         }
