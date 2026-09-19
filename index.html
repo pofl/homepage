@@ -21,11 +21,10 @@
         --bio-max-scale: 0.75;
         --bio-size-min: calc(var(--heading-size-min) * var(--bio-scale));
         --bio-size-max: calc(var(--heading-size-max) * var(--bio-scale) * var(--bio-max-scale));
-        /* Normalizes the fluid h1 value: 0 at its minimum, 1 at its maximum. */
-        --heading-size-progress: calc(
-          (var(--heading-size-fluid) - var(--heading-size-min)) /
-            (var(--heading-size-max) - var(--heading-size-min))
-        );
+        /* h1 grows between 33.33rem and 60rem; keep bio interpolation on that range. */
+        --heading-size-fluid-min: 33.333333rem;
+        --heading-size-fluid-max: 60rem;
+        --bio-growth-rate: 0.00905625;
       }
 
       * {
@@ -83,10 +82,13 @@
         }
 
         .bio {
-          /* Interpolate from the bio minimum to its capped maximum using h1 progress. */
+          /* Interpolate from the bio minimum to its capped maximum over h1's range. */
           font-size: clamp(
             var(--bio-size-min),
-            calc(var(--bio-size-min) + (var(--bio-size-max) - var(--bio-size-min)) * var(--heading-size-progress)),
+            calc(
+              var(--bio-size-min) +
+                (100vw - var(--heading-size-fluid-min)) * var(--bio-growth-rate)
+            ),
             var(--bio-size-max)
           );
           color: var(--text-muted);
