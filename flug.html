@@ -38,11 +38,16 @@
       .time strong { display: block; font-size: 17px; letter-spacing: 0; }
       .time.bold strong { color: var(--ink); }
       .detail { position: relative; border-left: 1px solid var(--line); padding: 18px 0 18px 22px; }
-      .event .detail::before { content: ""; position: absolute; left: -5px; top: 26px; width: 9px; height: 9px; background: var(--ink); border-radius: 50%; }
+      .event .detail::before { content: ""; position: absolute; z-index: 1; left: -5px; top: 26px; width: 9px; height: 9px; background: var(--ink); border-radius: 50%; }
+      .event .detail::after { content: ""; position: absolute; left: -2px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--incoming, transparent) 30.5px, var(--outgoing, transparent) 30.5px); }
+      .air + .event { --incoming: var(--accent); }
+      .ground + .event { --incoming: #99aa99; }
+      .event:has(+ .air) { --outgoing: var(--accent); }
+      .event:has(+ .ground) { --outgoing: #99aa99; }
       .event h3 { margin: 0; font-size: 20px; font-weight: normal; line-height: 1.2; }
       .event p, .span p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
       .span .detail { padding-top: 10px; padding-bottom: 10px; }
-      .span .detail::before { content: ""; position: absolute; left: -3px; top: 0; bottom: 0; width: 5px; background: #99aa99; }
+      .span .detail::before { content: ""; position: absolute; left: -2px; top: 0; bottom: 0; width: 3px; background: #99aa99; }
       .span.air .detail::before { background: var(--accent); }
       .span .time { padding-top: 12px; }
       .tag { color: var(--accent); }
