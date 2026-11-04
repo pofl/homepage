@@ -19,7 +19,7 @@
         align-items: baseline;
         gap: 1rem;
         a { color: inherit; text-decoration: none; font-weight: 700; }
-        span { font-size: .8rem; opacity: .7; }
+        #source-link { font-size: .8rem; text-decoration: underline; }
       }
       #home {
         max-width: 680px;
@@ -58,7 +58,7 @@
   <body>
     <header class="brand">
       <a href="?">MARKDOWN / PREVIEW</a>
-      <span>READ ON THE WEB</span>
+      <a id="source-link" hidden>View source</a>
     </header>
     <main>
       <section id="home">
@@ -87,6 +87,7 @@
       const sourceInput = document.getElementById('source');
       const status = document.getElementById('status');
       const article = document.getElementById('document');
+      const sourceLink = document.getElementById('source-link');
 
       document.getElementById('form').addEventListener('submit', (event) => {
         event.preventDefault();
@@ -202,6 +203,8 @@
           if (heading) document.title = heading.textContent + ' | Markdown Preview';
           status.hidden = true;
           article.hidden = false;
+          sourceLink.href = source.base;
+          sourceLink.hidden = false;
           if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
         } catch (error) {
           home.hidden = false;
