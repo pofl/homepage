@@ -98,11 +98,16 @@
         if (gist) return { gistId: gist[1], filename: gist[2] && decodeFilename ? decodeURIComponent(gist[2]) : gist[2] || '' };
 
         if (!/^https?:\/\//i.test(value)) {
-          const parts = value.split('/');
-          if (parts.length < 3 || parts.some((part) => !part)) {
-            throw new Error('Enter a Gist ID, a GitHub file URL, or owner/repo/branch/path.');
+          if (/^[a-z][a-z\d+.-]*:/i.test(value) || value.startsWith('//')) {
+            throw new Error('Only HTTP and HTTPS URLs are supported.');
           }
-          value = 'https://raw.githubusercontent.com/' + parts.join('/') + (parts.length === 3 ? '/README.md' : '');
+          const parts = value.split('/');
+          return {
+            url: new URL(value, location.href).href,
+            fallback: parts.length >= 3 && parts.every((part) => part)
+              ? 'https://raw.githubusercontent.com/' + parts.join('/') + (parts.length === 3 ? '/README.md' : '')
+              : null
+          };
         }
 
         const url = new URL(value);
@@ -128,7 +133,14 @@
       }
 
       async function loadSource(source) {
-        if (!source.gistId) return { text: await fetchText(source.url), base: source.url };
+        if (!source.gistId) {
+          try {
+            return { text: await fetchText(source.url), base: source.url };
+          } catch (error) {
+            if (!source.fallback) throw error;
+            return { text: await fetchText(source.fallback), base: source.fallback };
+          }
+        }
         const response = await fetch('https://api.github.com/gists/' + source.gistId, { credentials: 'omit' });
         if (!response.ok) throw new Error('Could not load the Gist (HTTP ' + response.status + ').');
         const gist = await response.json();
