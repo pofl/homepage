@@ -27,10 +27,10 @@
       .legend .wait::before { width: 18px; height: 4px; background: #99aa99; }
     }
     @scope (.journeys) {
-      :scope { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+      :scope { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; font-family: sans-serif; }
       section { padding-top: 36px; }
       .section-heading { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
-      h2 { font-size: 30px; line-height: 1; font-weight: normal; margin: 0; }
+      h2 { font-family: Georgia, serif; font-size: 30px; line-height: 1; font-weight: normal; margin: 0; }
       .summary { text-align: right; }
       ol { list-style: none; margin: 0; padding: 0; }
       li { display: grid; grid-template-columns: 102px 1fr; gap: 0; }
@@ -89,15 +89,15 @@
         <ol>
           <li class="event">
             <div class="time bold">Mo 9.11. <strong>21:00</strong></div>
-            <div class="detail"><p>↗️ <span class="meta">MUC</span> Terminal 1</p></div>
+            <div class="detail"><p><span class="meta">MUC</span> Terminal 1</p></div>
           </li>
           <li class="span air">
             <div class="time">6h 35m</div>
-            <div class="detail"><div class="tag">Im Flug · EY 128</div><p>München nach Abu Dhabi</p><p>Boeing 787-9</p></div>
+            <div class="detail"><div class="tag">✈️ EY 128</div><p>München nach Abu Dhabi</p><p>Boeing 787-9</p></div>
           </li>
           <li class="event">
             <div class="time">Di 10.11. <strong>06:35</strong></div>
-            <div class="detail"><p>↘️ <span class="meta">AUH</span> Terminal A</p></div>
+            <div class="detail"><p><span class="meta">AUH</span> Terminal A</p></div>
           </li>
           <li class="span ground">
             <div class="time">2h 40m</div>
@@ -105,15 +105,15 @@
           </li>
           <li class="event">
             <div class="time bold">Di 10.11. <strong>09:15</strong></div>
-            <div class="detail"><p>↗️ <span class="meta">AUH</span> Terminal A</p></div>
+            <div class="detail"><p><span class="meta">AUH</span> Terminal A</p></div>
           </li>
           <li class="span air">
             <div class="time">3h 25m</div>
-            <div class="detail"><div class="tag">Im Flug · EY 214</div><p>Abu Dhabi nach Delhi</p><p>Airbus A321LR</p></div>
+            <div class="detail"><div class="tag">✈️ EY 214</div><p>Abu Dhabi nach Delhi</p><p>Airbus A321LR</p></div>
           </li>
           <li class="event">
             <div class="time">Di 10.11. <strong>14:10</strong></div>
-            <div class="detail"><p>↘️ <span class="meta">DEL</span> Terminal 3</p></div>
+            <div class="detail"><p><span class="meta">DEL</span> Terminal 3</p></div>
           </li>
           <li class="span ground">
             <div class="time">4h 10m</div>
@@ -121,15 +121,15 @@
           </li>
           <li class="event">
             <div class="time bold">Di 10.11. <strong>18:20</strong></div>
-            <div class="detail"><p>↗️ <span class="meta">DEL</span> Terminal 3</p></div>
+            <div class="detail"><p><span class="meta">DEL</span> Terminal 3</p></div>
           </li>
           <li class="span air">
             <div class="time">1h 35m</div>
-            <div class="detail"><div class="tag">Im Flug · AI 3312</div><p>Delhi nach Varanasi</p><p>Airbus A320neo</p></div>
+            <div class="detail"><div class="tag">✈️ AI 3312</div><p>Delhi nach Varanasi</p><p>Airbus A320neo</p></div>
           </li>
           <li class="event">
             <div class="time">Di 10.11. <strong>19:55</strong></div>
-            <div class="detail"><p>↘️ <span class="meta">VNS</span> Varanasi</p></div>
+            <div class="detail"><p><span class="meta">VNS</span> Varanasi</p></div>
           </li>
         </ol>
       </section>
@@ -142,15 +142,15 @@
         <ol>
           <li class="event">
             <div class="time bold">So 13.12. <strong>22:05</strong></div>
-            <div class="detail"><p>↗️ <span class="meta">DEL</span> Terminal 3</p></div>
+            <div class="detail"><p><span class="meta">DEL</span> Terminal 3</p></div>
           </li>
           <li class="span air">
             <div class="time">3h 50m</div>
-            <div class="detail"><div class="tag">Im Flug · EY 217</div><p>Delhi nach Abu Dhabi</p><p>Boeing 777-300ER</p></div>
+            <div class="detail"><div class="tag">✈️ EY 217</div><p>Delhi nach Abu Dhabi</p><p>Boeing 777-300ER</p></div>
           </li>
           <li class="event">
             <div class="time">Mo 14.12. <strong>00:25</strong></div>
-            <div class="detail"><p>↘️ <span class="meta">AUH</span> Terminal A</p></div>
+            <div class="detail"><p><span class="meta">AUH</span> Terminal A</p></div>
           </li>
           <li class="span ground">
             <div class="time">2h</div>
@@ -158,15 +158,15 @@
           </li>
           <li class="event">
             <div class="time bold">Mo 14.12. <strong>02:25</strong></div>
-            <div class="detail"><p>↗️ <span class="meta">AUH</span> Terminal A</p></div>
+            <div class="detail"><p><span class="meta">AUH</span> Terminal A</p></div>
           </li>
           <li class="span air">
             <div class="time">6h 35m</div>
-            <div class="detail"><div class="tag">Im Flug · EY 125</div><p>Abu Dhabi nach München</p><p>Boeing 787-9</p></div>
+            <div class="detail"><div class="tag">✈️ EY 125</div><p>Abu Dhabi nach München</p><p>Boeing 787-9</p></div>
           </li>
           <li class="event">
             <div class="time">Mo 14.12. <strong>06:00</strong></div>
-            <div class="detail"><p>↘️ <span class="meta">MUC</span> Terminal 1</p></div>
+            <div class="detail"><p><span class="meta">MUC</span> Terminal 1</p></div>
           </li>
         </ol>
       </section>
