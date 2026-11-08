@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>München nach Indien · Reiseplan</title>
+  <script type="module" src="https://unpkg.com/html-include-element@0.3.0"></script>
   <style>
     :root { color-scheme: light; --ink: #172d2c; --muted: #64736d; --paper: #f5f2e9; --line: #c9d1c5; --onground: #c35b3e; --inflight: #3f3c96; }
     * { box-sizing: border-box; }
@@ -51,6 +52,8 @@
       .span.air .detail::before { background: var(--inflight); }
       .span .time { padding-top: 12px; }
       .tag { color: var(--inflight); }
+      .tag a { color: inherit; text-decoration: none; &:hover { text-decoration: underline; } }
+      .tag html-include { display: inline-block; width: .8em; height: .8em; margin-left: .35em; vertical-align: -.05em; }
       .ground .tag { color: var(--onground); }
       @media (max-width: 600px) {
         :scope { grid-template-columns: 1fr; gap: 0; }
@@ -93,7 +96,7 @@
           </li>
           <li class="span air">
             <div class="time"></div>
-            <div class="detail"><div class="tag">✈️ EY 128 · 6h 35m</div><p>München nach Abu Dhabi</p><p><small>Boeing 787-9</small></p></div>
+            <div class="detail"><div class="tag"><a href="https://www.flightaware.com/live/flight/ETD128" target="_blank" rel="noopener noreferrer">✈️ EY 128 · 6h 35m<html-include src="external-link.html"></html-include></a></div><p>München nach Abu Dhabi</p><p><small>Boeing 787-9</small></p></div>
           </li>
           <li class="event">
             <div class="time"><strong>06:35</strong></div>
@@ -109,7 +112,7 @@
           </li>
           <li class="span air">
             <div class="time"></div>
-            <div class="detail"><div class="tag">✈️ EY 214 · 3h 25m</div><p>Abu Dhabi nach Delhi</p><p><small>Airbus A321LR</small></p></div>
+            <div class="detail"><div class="tag"><a href="https://www.flightaware.com/live/flight/ETD214" target="_blank" rel="noopener noreferrer">✈️ EY 214 · 3h 25m<html-include src="external-link.html"></html-include></a></div><p>Abu Dhabi nach Delhi</p><p><small>Airbus A321LR</small></p></div>
           </li>
           <li class="event">
             <div class="time"><strong>14:10</strong></div>
@@ -125,7 +128,7 @@
           </li>
           <li class="span air">
             <div class="time"></div>
-            <div class="detail"><div class="tag">✈️ AI 3312 · 1h 35m</div><p>Delhi nach Varanasi</p><p><small>Airbus A320neo</small></p></div>
+            <div class="detail"><div class="tag"><a href="https://www.flightaware.com/live/flight/AIC3312" target="_blank" rel="noopener noreferrer">✈️ AI 3312 · 1h 35m<html-include src="external-link.html"></html-include></a></div><p>Delhi nach Varanasi</p><p><small>Airbus A320neo</small></p></div>
           </li>
           <li class="event">
             <div class="time"><strong>19:55</strong></div>
@@ -146,7 +149,7 @@
           </li>
           <li class="span air">
             <div class="time"></div>
-            <div class="detail"><div class="tag">✈️ EY 217 · 3h 50m</div><p>Delhi nach Abu Dhabi</p><p><small>Boeing 777-300ER</small></p></div>
+            <div class="detail"><div class="tag"><a href="https://www.flightaware.com/live/flight/ETD217" target="_blank" rel="noopener noreferrer">✈️ EY 217 · 3h 50m<html-include src="external-link.html"></html-include></a></div><p>Delhi nach Abu Dhabi</p><p><small>Boeing 777-300ER</small></p></div>
           </li>
           <li class="event">
             <div class="time"><strong>00:25</strong></div>
@@ -162,7 +165,7 @@
           </li>
           <li class="span air">
             <div class="time"></div>
-            <div class="detail"><div class="tag">✈️ EY 125 · 6h 35m</div><p>Abu Dhabi nach München</p><p><small>Boeing 787-9</small></p></div>
+            <div class="detail"><div class="tag"><a href="https://www.flightaware.com/live/flight/ETD125" target="_blank" rel="noopener noreferrer">✈️ EY 125 · 6h 35m<html-include src="external-link.html"></html-include></a></div><p>Abu Dhabi nach München</p><p><small>Boeing 787-9</small></p></div>
           </li>
           <li class="event">
             <div class="time"><strong>06:00</strong></div>
